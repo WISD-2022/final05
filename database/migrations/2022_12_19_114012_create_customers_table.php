@@ -14,9 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('customers', function (Blueprint $table) {
-            $table->id();
-
-            $table->timestamps();
+                $table->id();//顧客編號
+                $table->timestamps();
+                $table->string('name',10);//顧客名稱
+                $table->string('account',20);//顧客帳號
+                $table->string('password',20);//顧客密碼
         });
     }
 

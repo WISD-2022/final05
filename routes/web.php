@@ -1,5 +1,12 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\MealController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\OrderItemController;
+use App\Http\Controllers\PosterController;
+use App\Http\Controllers\StaffController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,3 +33,11 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::resource('categories', CategoryController::class);
+Route::resource('customers', CustomerController::class);
+Route::resource('meals', MealController::class);
+Route::resource('orders', OrderController::class);
+Route::resource('orderitems', OrderItemController::class);
+Route::resource('posters', PosterController::class);
+Route::resource('staffs', StaffController::class);

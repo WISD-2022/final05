@@ -14,13 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('meals', function (Blueprint $table) {
-            $table->id()->primary();
-            $table->timestamps();
+            $table->id();
             $table->unsignedBigInteger('category_id');
-            $table->foreign('category_id')->references('id')->on('category');
-            $table->string('name',20);
+            $table->foreign('category_id')->references('id')->on('categories');
+            $table->string('name');
             $table->integer('price');
-            $table->string('pic',20);
+            $table->string('pic');
+            $table->timestamps();
 
 
         });

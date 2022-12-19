@@ -14,7 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('staff', function (Blueprint $table) {
-            $table->id();
+            $table->id();//編號
+            $table->string('name');//姓名
+            $table->string('email')->unique();//email
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');//密碼
             $table->timestamps();
         });
     }

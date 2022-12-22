@@ -14,4 +14,8 @@ class Category extends Model
     'account',
     'password'
 ];
+    #一個類別擁有多個餐點(一對多)
+    public function meal(){
+        return $this->hasMany(Meal::class);
+    }
 }

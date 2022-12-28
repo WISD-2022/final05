@@ -13,10 +13,12 @@ class PosterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    //平台人員首頁
     public function index()
     {
-        //
+        return view('poster.dashboard.index');
     }
+
 
     /**
      * Show the form for creating a new resource.

@@ -15,7 +15,12 @@ class MealController extends Controller
      */
     public function index()
     {
-        //
+        $meals = Meal::orderBy('id', 'DESC')->get();//取得資料庫中的欄位值，以陣列的方式
+        $data=[
+            'meals'=>$meals
+        ];
+
+        return view('poster.meals.index',$data);
     }
 
     /**

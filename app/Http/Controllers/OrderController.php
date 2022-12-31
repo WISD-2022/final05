@@ -15,7 +15,12 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $orders = Order::orderBy('id','DESC')->get();//取得資料庫中的欄位值，以陣列的方式
+        $data=[
+            'orders'=>$orders
+        ];
+
+        return view('staff.orders.index',$data);
     }
 
     /**

@@ -29,10 +29,19 @@
 
                     <a href="{{route('poster.meals.show',$meal->id)}}" class="btn btn-primary btn-sm">詳細資料</a>
 
+<<<<<<< HEAD
 
 
                     <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@123">刪除</button>
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+=======
+                    <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#meal{{$meal->id}}" data-bs-whatever="@123">刪除</button>
+                    <div class="modal fade" id="meal{{$meal->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <form action="{{route('poster.meals.destroy',$meal->id)}}" method="post" >
+                            @method('delete')
+                            <!--csrf驗證機制，產生隱藏的input，包含一組驗證密碼-->
+                            @csrf
+>>>>>>> 99f26241befd34e0fe7d60f95f03b5c86d765d4a
                         <!--互動視窗-->
                         <div class="modal-dialog">
                             <div class="modal-content">
@@ -41,10 +50,6 @@
                                     <h5 class="modal-title">刪除餐點</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="" aria-label="Close"></button>
                                 </div>
-                                <form action="{{route('poster.meals.destroy',$meal->id)}}" method="post" >
-                                    @method('delete')
-                                    <!--csrf驗證機制，產生隱藏的input，包含一組驗證密碼-->
-                                    @csrf
                                     <div class="modal-body">
                                         <p>確定要刪除 {{$meal->name}} 嗎?</p>
                                     </div>
@@ -52,9 +57,9 @@
                                         <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">取消</button>
                                         <button type="submit" class="btn btn-sm btn-danger">確定</button>
                                     </div>
-                                </form>
                             </div>
                         </div>
+                        </form>
                     </div>
 
 

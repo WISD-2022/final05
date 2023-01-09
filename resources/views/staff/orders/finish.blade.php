@@ -1,18 +1,18 @@
 @extends('staff.layouts.master')
 
-@section('page-title', '訂單列表')
+@section('page-title', '歷史訂單列表')
 
 @section('page-content')
     <div class="container-fluid px-4">
-        <h1 class="mt-4">訂單管理</h1>
+        <h1 class="mt-4">歷史訂單</h1>
         <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item active">訂單一覽表</li>
+            <li class="breadcrumb-item active">歷史訂單一覽表</li>
         </ol>
         <table class="table">
             <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">訂單成立時間</th>
+                <th scope="col">完成時間</th>
                 <th scope="col">功能</th>
             </tr>
             </thead>

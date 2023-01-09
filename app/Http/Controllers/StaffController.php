@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
+use App\Models\OrderItem;
 use App\Models\Staff;
 use App\Http\Requests\StoreStaffRequest;
 use App\Http\Requests\UpdateStaffRequest;
@@ -15,7 +17,24 @@ class StaffController extends Controller
      */
     public function index()
     {
-        //
+        //同時抓pay為已付款(1)與status為製作中(1)的資料
+        $orders=Order::where('pay','=','1')->where('status','=','1')->get();
+
+       $data=[
+            'orders'=>$orders,
+
+        ];
+        return view('staff.orders.index',$data);
+    }
+
+    public function finish()
+    {
+        $orders=Order::where('pay','=','1')->where('status','=','2')->get();
+        $data=[
+            'orders'=>$orders
+        ];
+
+        return view('staff.orders.finish',$data);
     }
 
     /**
@@ -45,9 +64,21 @@ class StaffController extends Controller
      * @param  \App\Models\Staff  $staff
      * @return \Illuminate\Http\Response
      */
-    public function show(Staff $staff)
+    public function show(Order $order)
     {
-        //
+       $orderItems=OrderItem::where('order_id','=',$order->id)->get();
+        $order_way=$order->way;
+        $order_total=$order->total;
+        $order_status=$order->status;
+
+        $data=[
+           'orderItems'=>$orderItems,
+            'order'=>$order,
+           'order_way'=>$order_way,
+            'order_total'=>$order_total,
+            'order_status'=>$order_status,
+       ];
+       return view('staff.orders.show',$data);
     }
 
     /**
@@ -70,7 +101,7 @@ class StaffController extends Controller
      */
     public function update(UpdateStaffRequest $request, Staff $staff)
     {
-        //
+
     }
 
     /**
@@ -83,4 +114,48 @@ class StaffController extends Controller
     {
         //
     }
+
+
+    public function itemstatus(OrderItem $orderItem)
+    {
+        $orderItem->update([
+            'status'=>1,
+        ]);
+        $order=$orderItem->order->id;
+        $orderItems=OrderItem::where('order_id','=',$order)->get();
+        $order_status=$orderItems->order->status;
+        $order_way=$orderItems->order->way;
+        $order_total=$orderItems->order->total;
+
+
+
+        $data=[
+            'orderItems'=>$orderItems,
+            'order'=>$order,
+            'order_way'=>$order_way,
+            'order_status'=>$order_status,
+            'order_total'=>$order_total,
+        ];
+
+
+        return view('staff.orders.show',$data);
+    }
+    public function orderstatus(Order $order)
+    {
+        $order->update([
+            'status'=>2,//訂單完成狀態
+        ]);
+        $orders=Order::where('pay','=','1')->where('status','=','2')->get();
+        $data=[
+            'orders'=>$orders,
+
+        ];
+
+
+        return view('staff.orders.finish',$data);
+    }
+
+
+
+
 }

@@ -64,6 +64,7 @@ Route::prefix('staff')->name('staff.')->group(function () {
     Route::patch('/orderItems/{orderItem}',[StaffController::class,'itemstatus'])->name('itemstatus.update');//餐點完成按鈕
     Route::get('/orders/finish',[StaffController::class,'finish'])->name('orders.finish');//歷史訂單列表
     Route::patch('/orders/{order}',[StaffController::class,'orderstatus'])->name('orderstatus.update');//已完成訂單按鈕
+    Route::delete('/orders/{order}',[StaffController::class,'destroy'])->name('orders.destroy');//刪除餐點資料
 });
 
 

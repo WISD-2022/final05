@@ -29,35 +29,31 @@
 
 
 
-                    <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@123">刪除</button>
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-
-                        <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#meal{{$order->id}}" data-bs-whatever="@123">刪除</button>
-                        <div class="modal fade" id="meal{{$order->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <form action="" method="post" >
-                                @method('delete')
-                                <!--csrf驗證機制，產生隱藏的input，包含一組驗證密碼-->
-                                @csrf
-
-                                <!--互動視窗-->
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <!--標題-->
-                                        <div class="modal-header">
-                                            <h5 class="modal-title">刪除餐點</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <p>確定要刪除 {{$order->name}} 嗎?</p>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">取消</button>
-                                            <button type="submit" class="btn btn-sm btn-danger">確定</button>
-                                        </div>
+                    <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#category{{$order->id}}" data-bs-whatever="@123">刪除</button>
+                    <div class="modal fade" id="category{{$order->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <form action="{{route('staff.orders.destroy',$order->id)}}" method="post" >
+                            @method('delete')
+                            <!--csrf驗證機制，產生隱藏的input，包含一組驗證密碼-->
+                            @csrf
+                            <!--互動視窗-->
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <!--標題-->
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">刪除歷史訂單</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>確定要刪除第 {{$order->id}} 筆訂單嗎?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">取消</button>
+                                        <button type="submit" class="btn btn-sm btn-danger">確定</button>
                                     </div>
                                 </div>
-                            </form>
-                        </div>
+                            </div>
+                        </form>
+                    </div>
 
 
                 </td>

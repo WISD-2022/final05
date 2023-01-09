@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Meal;
 use App\Models\Order;
 use App\Http\Requests\StoreOrderRequest;
@@ -36,8 +37,10 @@ class OrderController extends Controller
     public function index()
     {
         $meals = Meal::orderBy('id','DESC')->get();//取得資料庫中的欄位值，以陣列的方式
+        $categories=Category::orderBy('id','DESC')->get();
         $data=[
-            'meals'=>$meals
+            'meals'=>$meals,
+            'categories'=>$categories
         ];
 
         //把資料呈現到顧客點餐的首頁

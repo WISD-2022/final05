@@ -34,8 +34,13 @@ class OrderItemController extends Controller
     //儲存訂單明細資料
     public function store(Request $request,Meal $meal)
     {
+        //之後要加入middelware功能
+        if(Auth::user()==null){
+            return view('auth.login');
+        }
         //取得使用者此筆訂單資訊
         $order = Auth::user()->order()->orderby('id', 'DESC')->first();
+
 
         //關聯餐點及訂單到order_item表內
         $meal->order()->attach($order->id, ['quantity' => $request['quantity'], 'status' => 0]);

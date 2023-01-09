@@ -55,7 +55,7 @@ Route::prefix('poster')->name('poster.')->group(function () {
     Route::get('/categories/{category}/edit',[CategoryController::class,'edit'])->name('categories.edit');//編輯類別頁面
     Route::patch('/categories/{category}',[CategoryController::class,'update'])->name('categories.update');//更新類別資料
     Route::get('/categories/{category}/show', [CategoryController::class, 'show'])->name('categories.show');//餐點詳情頁面
-Route::delete('/categories/{category}',[CategoryController::class,'destroy'])->name('categories.destroy');//刪除餐點資料
+    Route::delete('/categories/{category}',[CategoryController::class,'destroy'])->name('categories.destroy');//刪除餐點資料
 });
 //內場人員
 Route::prefix('staff')->name('staff.')->group(function () {

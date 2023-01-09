@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.master_nosib')
 
 @section('page-title', 'Create article')
 

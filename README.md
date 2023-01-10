@@ -3,33 +3,33 @@
 ## -訪客/會員
 
 ### ◆首頁
-
+<a href ="https://imgur.com/1pQDF6z"><img src="https://imgur.com/1pQDF6z.png" title="source: imgur.com" /></a>
 ### ◆餐點資訊
-
+<a href ="https://imgur.com/DMOLRNp"><img src="https://imgur.com/DMOLRNp.png" title="source: imgur.com" /></a>
 ### ◆修改訂單
-
+<a href ="https://imgur.com/Ynsq8YF"><img src="https://imgur.com/Ynsq8YF.png" title="source: imgur.com" /></a>
 ### ◆結帳
-
+<a href ="https://imgur.com/X7XCb6j"><img src="https://imgur.com/X7XCb6j.png" title="source: imgur.com" /></a>
 ### ◆訂單詳情
+<a href ="https://imgur.com/yqKAiGE"><img src="https://imgur.com/yqKAiGE.png" title="source: imgur.com" /></a>
 
 ## -平台人員
-
 ### ◆首頁
-
+<a href ="https://imgur.com/LmIfTXt"><img src="https://imgur.com/LmIfTXt.png" title="source: imgur.com" /></a>
 ### ◆餐點管理
-
+<a href ="https://imgur.com/7FZ7F9C"><img src="https://imgur.com/7FZ7F9C.png" title="source: imgur.com" /></a>
 ### ◆類別管理
+<a href ="https://imgur.com/3CIyN4F"><img src="https://imgur.com/3CIyN4F.png" title="source: imgur.com" /></a>
 
 ## -內場人員
-
 ### ◆首頁
-
+<a href ="https://imgur.com/u3fxCdn"><img src="https://imgur.com/u3fxCdn.png" title="source: imgur.com" /></a>
 ### ◆訂單管理
-
+<a href ="https://imgur.com/RkvVUcP"><img src="https://imgur.com/RkvVUcP.png" title="source: imgur.com" /></a>
 ### ◆訂單詳情
-
+<a href ="https://imgur.com/CuPksUL"><img src="https://imgur.com/CuPksUL.png" title="source: imgur.com" /></a>
 ### ◆歷史訂單
-
+<a href ="https://imgur.com/WIghJin"><img src="https://imgur.com/WIghJin.png" title="source: imgur.com" /></a>
 # 系統名稱及作用
 
 快炒店點餐管理系統
@@ -53,7 +53,6 @@
   - 新增訂單 (Route::get('/orders/create/{order}', [OrderController::class, 'create'])->name('orders.create');) [3A932111 林柔逸](https://github.com/3A932111)
   - 儲存結帳資訊 (Route::post('/orders/{order}', [OrderController::class, 'store'])->name('orders.store');) [3A932111 林柔逸](https://github.com/3A932111)
   - 訂單詳情 (Route::get('/orders/{order}/show', [OrderController::class, 'show'])->name('orders.show');) [3A932111 林柔逸](https://github.com/3A932111)
-  - 刪除訂單資料 (Route::delete('/orders/{order}',[OrderController::class,'destroy'])->name('orders.destroy');) [3A932111 林柔逸](https://github.com/3A932111)
   - 訂單餐點編輯 (Route::get('/orders/{order}/edit',[OrderController::class,'edit'])->name('orders.edit');) [3A932111 林柔逸](https://github.com/3A932111)
   - 訂單餐點更新 (Route::patch('/orders/{order}',[OrderController::class,'update'])->name('orders.update');) [3A932111 林柔逸](https://github.com/3A932111)
   
@@ -95,15 +94,20 @@
   - 刪除訂單 Route::delete('/orders/{order}',[StaffController::class,'destroy'])->name('orders.destroy'); [3A932108 徐翊筑](https://github.com/3A932108)
 
 # ERD   
-
+<a href ="https://imgur.com/L79allF"><img src="https://imgur.com/L79allF.png" title="source: imgur.com" /></a>
 # 關聯式綱要圖   
-
+<a href ="https://imgur.com/t4v1dBP"><img src="https://imgur.com/t4v1dBP.png" title="source: imgur.com" /></a>
 # 實際資料表欄位設計  
   - 使用者(users)資料表
+  <a href ="https://imgur.com/iUNIZpK"><img src="https://imgur.com/iUNIZpK.png" title="source: imgur.com" /></a>
   - 類別(categories)資料表
+  <a href ="https://imgur.com/iA5CeGC"><img src="https://imgur.com/iA5CeGC.png" title="source: imgur.com" /></a>
   - 餐點(meals)資料表
+  <a href ="https://imgur.com/wV3KFHa"><img src="https://imgur.com/wV3KFHa.png" title="source: imgur.com" /></a>
   - 訂單(orders)資料表
+  <a href ="https://imgur.com/frOJrFg"><img src="https://imgur.com/frOJrFg.png" title="source: imgur.com" /></a>
   - 訂單明細(order_items)資料表
+  <a href ="https://imgur.com/5OS7PjS"><img src="https://imgur.com/5OS7PjS.png" title="source: imgur.com" /></a>
   
 # 初始專案與DB負責的同學 
 - 初始專案 [3A932108 徐翊筑](https://github.com/3A932108)
@@ -118,11 +122,12 @@
     
 
 # 系統測試資料存放位置  
-
-
+ final05底下的sql資料夾
+ 
 # 系統使用者測試帳號  
     
     seeder後，users資料表會有三筆資料，需手動將users資料表的role各別設為0、1、2(0為會員、1為平台人員、2為內場人員)
+    帳號：至users資料表複製各使用者e-mail
     密碼：皆為8個零(00000000)
     
 
